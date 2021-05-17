@@ -1,8 +1,8 @@
 <template>
-  <nav>
-    <div>
-      <p>Какой то почтовый ящик</p>
-      <p class="email">Какая то почта</p>
+  <nav v-if="user">
+    <div >
+      <p>Пользователь вошел под ником {{ user.displayName }}</p>
+      <p class="email">Ваша почта {{ user.email }}</p>
     </div>
     <button @click="handleClick">Logout</button>
   </nav>
@@ -10,11 +10,13 @@
 
 <script>
 import useLogout from "../composables/useLogout";
+import getUser from "../composables/getUser";
 
 export default {
   name: "Navbar",
   setup(){
     const {logout, error} = useLogout()
+    const { user} = getUser()
 
     const handleClick = async () => {
       await logout()
@@ -23,9 +25,12 @@ export default {
       }
     }
 
+    console.log(user)
+
     return {
       error,
-      handleClick
+      handleClick,
+      user
     }
   }
 
