@@ -4,13 +4,31 @@
       <p>Какой то почтовый ящик</p>
       <p class="email">Какая то почта</p>
     </div>
-    <button>Logout</button>
+    <button @click="handleClick">Logout</button>
   </nav>
 </template>
 
 <script>
+import useLogout from "../composables/useLogout";
+
 export default {
-  name: "Navbar"
+  name: "Navbar",
+  setup(){
+    const {logout, error} = useLogout()
+
+    const handleClick = async () => {
+      await logout()
+      if(!error.value){
+        console.log('user Logout')
+      }
+    }
+
+    return {
+      error,
+      handleClick
+    }
+  }
+
 }
 </script>
 
