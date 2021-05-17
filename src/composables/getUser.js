@@ -9,7 +9,6 @@ projectAuth.onAuthStateChanged(_user => {
 })
 
 const getUser = () => {
-    console.log("передаем ", user)
     return {user}
 }
 
