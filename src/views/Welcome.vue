@@ -3,13 +3,13 @@
     <p>Welcome</p>
     <div v-if="!showLogin">
       <h2>Sign Up</h2>
-      <SignupForm/>
+      <SignupForm @signUp="enterChatRoom"/>
       <p>Alredy register ? <span @click="showLogin=!showLogin">Login</span> instead</p>
       <p></p>
     </div>
     <div v-if="showLogin">
       <h2>Login</h2>
-      <LoginForm />
+      <LoginForm @login="enterChatRoom"/>
       <p>No accounts ? <span @click="showLogin=!showLogin">Sign Up</span> instead</p>
     </div >
 
@@ -18,9 +18,13 @@
 </template>
 
 <script>
+import {ref} from "vue";
+import {useRouter} from "vue-router";
+
 import SignupForm from "../components/SignupForm";
 import LoginForm from "../components/LoginForm";
-import {ref} from "vue";
+import ChatRoom from "./ChatRoom";
+
 
 export default {
   name: "Welcome",
@@ -30,8 +34,15 @@ export default {
   },
   setup(){
     const showLogin = ref(false)
+    const router = useRouter()
+
+    const enterChatRoom = () => {
+      router.push({name: 'ChatRoom'})
+    }
+
     return {
-      showLogin
+      showLogin,
+      enterChatRoom
     }
   },
 }

@@ -13,7 +13,7 @@ import useLogin from "../composables/useLogin";
 
 export default {
   name: "LoginForm",
-  setup(){
+  setup(props, context){
     const email = ref('')
     const password = ref('')
 
@@ -23,6 +23,7 @@ export default {
       await signIn(email.value, password.value)
       if(!error.value){
         console.log('User logged in')
+        context.emit('login')
       }
     }
 
