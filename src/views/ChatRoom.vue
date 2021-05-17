@@ -1,10 +1,16 @@
 <template>
-  <h3>ChatRoom</h3>
+  <div class="container">
+    <Navbar />
+  </div>
 </template>
 
 <script>
+import Navbar from "../components/Navbar";
+
+
 export default {
-  name: "ChatRoom"
+  name: "ChatRoom",
+  components: {Navbar}
 }
 </script>
 
