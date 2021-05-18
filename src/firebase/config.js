@@ -3,12 +3,12 @@ import "firebase/firestore";
 import 'firebase/auth'
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDm6z8bTWZ6MSsmTSNW7FIIcdZTR5GEG5Y",
+    apiKey: "убрал данные - смотрите в web рабочую версию",
     authDomain: "live-chat-80922.firebaseapp.com",
     projectId: "live-chat-80922",
     storageBucket: "live-chat-80922.appspot.com",
-    messagingSenderId: "366223542077",
-    appId: "1:366223542077:web:4c63dd96b25cc39ee22754"
+    messagingSenderId: "убрал данные - смотрите в web рабочую версию",
+    appId: "убрал данные - смотрите в web рабочую версию"
 }
 
 // init firebase

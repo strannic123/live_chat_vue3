@@ -23,7 +23,6 @@ export default {
 
     const handlerSubmit = async () => {
       await signup(email.value, password.value, displayName.value)
-      console.log("юзер зарегистрирован")
       if(!error.value){
         context.emit('signUp')
       }

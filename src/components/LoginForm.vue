@@ -22,7 +22,6 @@ export default {
     const handlerSubmit = async () => {
       await signIn(email.value, password.value)
       if(!error.value){
-        console.log('User logged in')
         context.emit('login')
       }
     }
